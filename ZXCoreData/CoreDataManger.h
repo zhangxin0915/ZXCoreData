@@ -20,6 +20,11 @@
 
 + (id)sharedInstance;
 
+-(void)insertCoreDataTest;
+- (void)queryCoreDataTest;
+-(void)deleteCoreDataTest;
+- (void)updateCoreDataTest;
+
 //插入数据
 - (void)insertCoreData:(NSMutableArray*)dataArray;
 //查询

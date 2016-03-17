@@ -7,6 +7,8 @@
 //
 
 #import "CoreDataManger.h"
+#import "Person.h"
+#import "Company.h"
 
 @implementation CoreDataManger
 
@@ -102,27 +104,171 @@
 }
 
 
-
+#pragma makr - 增删改查
 //插入数据
-- (void)insertCoreData:(NSMutableArray*)dataArray
+-(void)insertCoreDataTest
 {
     NSManagedObjectContext *context = [self managedObjectContext];
-    
-//    for (News *info in dataArray) {
-//        News *newsInfo = [NSEntityDescription insertNewObjectForEntityForName:TableName inManagedObjectContext:context];
-//        newsInfo.newsid = info.newsid;
-//        newsInfo.title = info.title;
-//        newsInfo.imgurl = info.imgurl;
-//        newsInfo.descr = info.descr;
-//        newsInfo.islook = info.islook;
-//        
-//        NSError *error;
-//        if(![context save:&error])
-//        {
-//            NSLog(@"不能保存：%@",[error localizedDescription]);
-//        }
-//    }
+    for (int i = 0 ; i < 10; i ++) {
+            Person *person =  [NSEntityDescription insertNewObjectForEntityForName:@"Person" inManagedObjectContext:context];
+            person.name = [NSString stringWithFormat:@"张新%d",i];
+            person.cardID = [NSString stringWithFormat:@"2016%f",@(i + 1000).floatValue];
+            person.age = @(20 + i);
+            Company *company = [NSEntityDescription insertNewObjectForEntityForName:@"Company" inManagedObjectContext:context];
+            company.companyName = @"汉弘";
+            person.company = company;
+        }
+        NSError *error;
+        if(![context save:&error])
+        {
+            NSLog(@"不能保存：%@",[error localizedDescription]);
+        }
 }
+// 查询数据
+- (void)queryCoreDataTest
+{
+    NSManagedObjectContext *context = [self managedObjectContext];
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Person" inManagedObjectContext:context];
+    [fetchRequest setEntity:entity];
+    NSError *error;
+    NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
+    [fetchedObjects enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if ([obj isKindOfClass:[Person class]]) {
+            Person *per = (Person *)obj;
+            NSLog(@"per.name == %@ \n per.age ==  %d \n per.cardID ==  %@",per.name,per.age.integerValue,per.cardID);
+        }
+    }];
+}
+ //删除数据
+ -(void)deleteCoreDataTest
+ {
+     NSManagedObjectContext *context = [self managedObjectContext];
+     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Person" inManagedObjectContext:context];
+
+     NSFetchRequest *request = [[NSFetchRequest alloc] init];
+     [request setIncludesPropertyValues:NO];
+     [request setEntity:entity];
+     NSError *error = nil;
+     NSArray *datas = [context executeFetchRequest:request error:&error];
+     if (!error && datas && [datas count])
+     {
+         for (NSManagedObject *obj in datas)
+         {
+             [context deleteObject:obj];
+         }
+         if (![context save:&error])
+         {
+             NSLog(@"error:%@",error);
+         }
+     }
+ }
+//更新数据
+ - (void)updateCoreDataTest
+ {
+    
+ }
+
+// //插入数据
+// - (void)insertCoreData:(NSMutableArray*)dataArray
+// {
+//     NSManagedObjectContext *context = [self managedObjectContext];
+//     for (News *info in dataArray) {
+//     News *newsInfo = [NSEntityDescription insertNewObjectForEntityForName:TableName inManagedObjectContext:context];
+//     newsInfo.newsid = info.newsid;
+//     newsInfo.title = info.title;
+//     newsInfo.imgurl = info.imgurl;
+//     newsInfo.descr = info.descr;
+//     newsInfo.islook = info.islook;
+//     
+//     NSError *error;
+//     if(![context save:&error])
+//     {
+//     NSLog(@"不能保存：%@",[error localizedDescription]);
+//     }
+//     }
+// }
+
+ //查询
+// - (NSMutableArray*)selectData:(int)pageSize andOffset:(int)currentPage
+// {
+//     NSManagedObjectContext *context = [self managedObjectContext];
+//     
+//     // 限定查询结果的数量
+//     //setFetchLimit
+//     // 查询的偏移量
+//     //setFetchOffset
+//     
+//     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+//     
+//     [fetchRequest setFetchLimit:pageSize];
+//     [fetchRequest setFetchOffset:currentPage];
+//     
+//     NSEntityDescription *entity = [NSEntityDescription entityForName:TableName inManagedObjectContext:context];
+//     [fetchRequest setEntity:entity];
+//     NSError *error;
+//     NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
+//     NSMutableArray *resultArray = [NSMutableArray array];
+//     
+//     for (News *info in fetchedObjects) {
+//     NSLog(@"id:%@", info.newsid);
+//     NSLog(@"title:%@", info.title);
+//     [resultArray addObject:info];
+//     }
+//     return resultArray;
+// }
+
+
+// //删除
+// -(void)deleteData
+// {
+//     NSManagedObjectContext *context = [self managedObjectContext];
+//     NSEntityDescription *entity = [NSEntityDescription entityForName:TableName inManagedObjectContext:context];
+//     
+//     NSFetchRequest *request = [[NSFetchRequest alloc] init];
+//     [request setIncludesPropertyValues:NO];
+//     [request setEntity:entity];
+//     NSError *error = nil;
+//     NSArray *datas = [context executeFetchRequest:request error:&error];
+//     if (!error && datas && [datas count])
+//     {
+//     for (NSManagedObject *obj in datas)
+//     {
+//     [context deleteObject:obj];
+//     }
+//     if (![context save:&error])
+//     {
+//     NSLog(@"error:%@",error);
+//     }
+//     }
+// }
+
+ //更新
+// - (void)updateData:(NSString*)newsId  withIsLook:(NSString*)islook
+// {
+//     NSManagedObjectContext *context = [self managedObjectContext];
+//     
+//     NSPredicate *predicate = [NSPredicate
+//     predicateWithFormat:@"newsid like[cd] %@",newsId];
+//     
+//     //首先你需要建立一个request
+//     NSFetchRequest * request = [[NSFetchRequest alloc] init];
+//     [request setEntity:[NSEntityDescription entityForName:TableName inManagedObjectContext:context]];
+//     [request setPredicate:predicate];//这里相当于sqlite中的查询条件，具体格式参考苹果文档
+//     
+//     //https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/Predicates/Articles/pCreating.html
+//     NSError *error = nil;
+//     NSArray *result = [context executeFetchRequest:request error:&error];//这里获取到的是一个数组，你需要取出你要更新的那个obj
+//     for (News *info in result) {
+//     info.islook = islook;
+//     }
+//     
+//     //保存
+//     if ([context save:&error]) {
+//     //更新成功
+//     NSLog(@"更新成功");
+//     }
+// }
 
 
 @end

@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9AE964D01C9A51AB002E262A /* Company+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AE964C91C9A51AB002E262A /* Company+CoreDataProperties.m */; };
+		9AE964D11C9A51AB002E262A /* Company.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AE964CB1C9A51AB002E262A /* Company.m */; };
+		9AE964D21C9A51AB002E262A /* Person+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AE964CD1C9A51AB002E262A /* Person+CoreDataProperties.m */; };
+		9AE964D31C9A51AB002E262A /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AE964CF1C9A51AB002E262A /* Person.m */; };
 		9AF7233A1C9962F300147696 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AF723391C9962F300147696 /* main.m */; };
 		9AF7233D1C9962F300147696 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AF7233C1C9962F300147696 /* AppDelegate.m */; };
 		9AF723401C9962F300147696 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AF7233F1C9962F300147696 /* ViewController.m */; };
@@ -37,6 +41,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9AE964C81C9A51AB002E262A /* Company+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Company+CoreDataProperties.h"; path = "../Company+CoreDataProperties.h"; sourceTree = "<group>"; };
+		9AE964C91C9A51AB002E262A /* Company+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Company+CoreDataProperties.m"; path = "../Company+CoreDataProperties.m"; sourceTree = "<group>"; };
+		9AE964CA1C9A51AB002E262A /* Company.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Company.h; path = ../Company.h; sourceTree = "<group>"; };
+		9AE964CB1C9A51AB002E262A /* Company.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Company.m; path = ../Company.m; sourceTree = "<group>"; };
+		9AE964CC1C9A51AB002E262A /* Person+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Person+CoreDataProperties.h"; path = "../Person+CoreDataProperties.h"; sourceTree = "<group>"; };
+		9AE964CD1C9A51AB002E262A /* Person+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Person+CoreDataProperties.m"; path = "../Person+CoreDataProperties.m"; sourceTree = "<group>"; };
+		9AE964CE1C9A51AB002E262A /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Person.h; path = ../Person.h; sourceTree = "<group>"; };
+		9AE964CF1C9A51AB002E262A /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Person.m; path = ../Person.m; sourceTree = "<group>"; };
 		9AF723351C9962F300147696 /* ZXCoreData.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZXCoreData.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9AF723391C9962F300147696 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		9AF7233B1C9962F300147696 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -112,6 +124,14 @@
 				9AF7236F1C99634A00147696 /* CoreDataManger.m */,
 				9AF7233E1C9962F300147696 /* ViewController.h */,
 				9AF7233F1C9962F300147696 /* ViewController.m */,
+				9AE964C81C9A51AB002E262A /* Company+CoreDataProperties.h */,
+				9AE964C91C9A51AB002E262A /* Company+CoreDataProperties.m */,
+				9AE964CA1C9A51AB002E262A /* Company.h */,
+				9AE964CB1C9A51AB002E262A /* Company.m */,
+				9AE964CC1C9A51AB002E262A /* Person+CoreDataProperties.h */,
+				9AE964CD1C9A51AB002E262A /* Person+CoreDataProperties.m */,
+				9AE964CE1C9A51AB002E262A /* Person.h */,
+				9AE964CF1C9A51AB002E262A /* Person.m */,
 				9AF723411C9962F300147696 /* Main.storyboard */,
 				9AF723471C9962F300147696 /* Assets.xcassets */,
 				9AF723491C9962F300147696 /* LaunchScreen.storyboard */,
@@ -278,11 +298,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9AE964D21C9A51AB002E262A /* Person+CoreDataProperties.m in Sources */,
 				9AF723461C9962F300147696 /* ZXCoreData.xcdatamodeld in Sources */,
+				9AE964D01C9A51AB002E262A /* Company+CoreDataProperties.m in Sources */,
 				9AF723401C9962F300147696 /* ViewController.m in Sources */,
 				9AF7233D1C9962F300147696 /* AppDelegate.m in Sources */,
 				9AF723701C99634A00147696 /* CoreDataManger.m in Sources */,
+				9AE964D31C9A51AB002E262A /* Person.m in Sources */,
 				9AF7233A1C9962F300147696 /* main.m in Sources */,
+				9AE964D11C9A51AB002E262A /* Company.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -508,6 +532,7 @@
 				9AF723671C9962F300147696 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9AF723681C9962F300147696 /* Build configuration list for PBXNativeTarget "ZXCoreDataTests" */ = {
 			isa = XCConfigurationList;
@@ -516,6 +541,7 @@
 				9AF7236A1C9962F300147696 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9AF7236B1C9962F300147696 /* Build configuration list for PBXNativeTarget "ZXCoreDataUITests" */ = {
 			isa = XCConfigurationList;
@@ -524,6 +550,7 @@
 				9AF7236D1C9962F300147696 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

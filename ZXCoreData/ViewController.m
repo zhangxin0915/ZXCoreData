@@ -7,6 +7,10 @@
 //
 
 #import "ViewController.h"
+#import "CoreDataManger.h"
+#import "Person.h"
+#import "Company.h"
+
 
 @interface ViewController ()
 
@@ -16,6 +20,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [[CoreDataManger sharedInstance]insertCoreDataTest];
+    [[CoreDataManger sharedInstance]queryCoreDataTest];
+    [[CoreDataManger sharedInstance]deleteCoreDataTest];
 
 }
 
