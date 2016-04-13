@@ -22,7 +22,10 @@
     [super viewDidLoad];
     [[CoreDataManger sharedInstance]insertCoreDataTest];
     [[CoreDataManger sharedInstance]queryCoreDataTest];
-    [[CoreDataManger sharedInstance]deleteCoreDataTest];
+    [[CoreDataManger sharedInstance]updateCoreDataTestWithName:@"李四"];
+    [[CoreDataManger sharedInstance]queryCoreDataTest];
+
+//    [[CoreDataManger sharedInstance]deleteCoreDataTest];
 
 }
 

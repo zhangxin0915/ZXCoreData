@@ -163,11 +163,7 @@
          }
      }
  }
-//更新数据
- - (void)updateCoreDataTest
- {
-    
- }
+
 
 // //插入数据
 // - (void)insertCoreData:(NSMutableArray*)dataArray
@@ -242,6 +238,25 @@
 //     }
 //     }
 // }
+
+//更新数据
+- (void)updateCoreDataTestWithName:(NSString *)theName
+{
+    NSManagedObjectContext *context = [self managedObjectContext];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name like[cd] %@",@"张新1"];
+    NSFetchRequest *request = [[NSFetchRequest alloc]init];
+    [request setEntity:[NSEntityDescription entityForName:@"Person" inManagedObjectContext:context]];
+    [request setPredicate:predicate];
+    NSError *error = nil;
+    NSArray *result = [context executeFetchRequest:request error:&error];
+    for (Person *person in result) {
+        person.name = theName;
+    }
+    if ([context save:&error]) {
+        NSLog(@"更新成功");
+    }
+
+}
 
  //更新
 // - (void)updateData:(NSString*)newsId  withIsLook:(NSString*)islook

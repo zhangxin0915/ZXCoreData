@@ -23,7 +23,7 @@
 -(void)insertCoreDataTest;
 - (void)queryCoreDataTest;
 -(void)deleteCoreDataTest;
-- (void)updateCoreDataTest;
+- (void)updateCoreDataTestWithName:(NSString *)theName;
 
 //插入数据
 - (void)insertCoreData:(NSMutableArray*)dataArray;
